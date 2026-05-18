@@ -31,6 +31,13 @@ Ključni nalaz u topologiji grafa je uloga Karle. U teoriji društvenih mreža, 
 ### AI utemeljenje
 Korištenjem ideja inspiriranih utemeljenjem znanja u stilu NotebookLM-a, aplikacija ne pokazuje samo linije; ona ih razumije. Kada se zatraži informacija o Karli i Sari, AI identificira njihovu zajedničku platformu (Platforma 2) i naglašava organizacijski put. Ovaj semantički sloj transformira sirove podatke u primjenjivu društvenu inteligenciju.
 
+## Uloga studentskog novinarstva u profesionalnom razvoju
+Studentsko novinarstvo i praktičan rad na medijskim platformama predstavljaju ključan inkubator za razvoj budućih stručnjaka. Kroz rad u ovakvim mrežama, studenti ne samo da stječu tehničke vještine (pisanje, uređivanje, produkcija), već i razvijaju kritičnu mrežu kontakata.
+
+1.  **Razvoj kompetencija:** Rad u dinamičnom okruženju poput Platforme 1 ili 2 zahtijeva timski rad, rješavanje konflikata i visoku razinu prilagodljivosti.
+2.  **Umrežavanje kao profesionalni kapital:** Kao što vizualizacija grafa pokazuje, veze stvorene tijekom studija (poput onih Karle ili Ivana) često postaju temelj za buduće preporuke i poslovne prilike u stvarnom sektoru.
+3.  **Simulacija industrijskih uvjeta:** Interakcija između članova različitih platformi (premošćivanje) omogućuje protok inovativnih ideja koji simulira realne uvjete u medijskoj industriji, pripremajući studente za kompleksne hijerarhijske strukture modernih redakcija. Praktično iskustvo stečeno ovdje smanjuje jaz između teorijskog obrazovanja i zahtjeva tržišta rada.
+
 ## Zaključak
 Media Network Explorer učinkovito premošćuje jaz između sirovih organizacijskih podataka i društvenog razumijevanja. Buduće iteracije trebale bi se fokusirati na unos podataka u stvarnom vremenu i mapiranje vremenskih promjena u članstvu kako bi se promatralo kako se gustoća mreže razvija tijekom semestra.
 
