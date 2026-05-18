@@ -1,0 +1,6 @@
+{
+  "name": "Media Network Explorer",
+  "description": "An interactive social graph visualization connecting student media platforms and their members.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

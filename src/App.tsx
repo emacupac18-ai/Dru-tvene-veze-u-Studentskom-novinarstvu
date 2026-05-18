@@ -1,0 +1,173 @@
+import { useState } from "react";
+import Graph, { Node, Link } from "./Graph";
+import AIAssistant from "./components/AIAssistant";
+import { Info, User, Share2, MousePointer2 } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+const INITIAL_NODES: Node[] = [
+  { id: "p1", name: "Studentska medijska platforma 1", type: "platform" },
+  { id: "p2", name: "Studentska medijska platforma 2", type: "platform" },
+  { id: "Ela", name: "Ela", type: "person" },
+  { id: "Karla", name: "Karla", type: "person" },
+  { id: "Tea", name: "Tea", type: "person" },
+  { id: "Ana", name: "Ana", type: "person" },
+  { id: "Ivan", name: "Ivan", type: "person" },
+  { id: "Loris", name: "Loris", type: "person" },
+  { id: "Hana", name: "Hana", type: "person" },
+  { id: "Sara", name: "Sara", type: "person" },
+  { id: "Mario", name: "Mario", type: "person" },
+  { id: "Nina", name: "Nina", type: "person" },
+];
+
+const INITIAL_LINKS: Link[] = [
+  { source: "p1", target: "p2" },
+  // Platform 1 members
+  { source: "p1", target: "Ela" },
+  { source: "p1", target: "Karla" },
+  { source: "p1", target: "Tea" },
+  { source: "p1", target: "Ana" },
+  { source: "p1", target: "Ivan" },
+  { source: "p1", target: "Loris" },
+  // Platform 2 members
+  { source: "p2", target: "Hana" },
+  { source: "p2", target: "Sara" },
+  { source: "p2", target: "Mario" },
+  { source: "p2", target: "Nina" },
+  // Special: Karla connected to both
+  { source: "p2", target: "Karla" },
+];
+
+export default function App() {
+  const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+
+  const platform1Count = INITIAL_LINKS.filter(l => l.source === "p1" || l.target === "p1").length;
+  const platform2Count = INITIAL_LINKS.filter(l => l.source === "p2" || l.target === "p2").length;
+
+  return (
+    <div className="flex h-screen w-full bg-[#050505] text-[#fff] font-sans overflow-hidden">
+      {/* Sidebar */}
+      <aside className="w-80 border-r border-[#1a1a1a] flex flex-col bg-[#0a0a0a] z-10 shadow-2xl">
+        <header className="p-6 border-b border-[#1a1a1a]">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-2 h-2 rounded-full bg-[#F27D26] animate-pulse" />
+            <span className="text-[10px] font-mono tracking-widest text-[#8E9299] uppercase">Network Monitor v1.0</span>
+          </div>
+          <h1 className="text-2xl font-semibold tracking-tight">Media Explorer</h1>
+          <p className="text-xs text-[#8E9299] mt-1 leading-relaxed">
+            Visualizing inter-platform student media connections and social hierarchy.
+          </p>
+        </header>
+
+        <div className="flex-1 overflow-y-auto p-6 space-y-8">
+          <section>
+            <h2 className="text-[11px] font-mono tracking-widest text-[#8E9299] uppercase mb-4">System Stats</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-[#151619] p-3 rounded-lg border border-[#1a1a1a]">
+                <div className="text-[10px] text-[#8E9299] uppercase mb-1">Nodes</div>
+                <div className="text-xl font-mono">{INITIAL_NODES.length}</div>
+              </div>
+              <div className="bg-[#151619] p-3 rounded-lg border border-[#1a1a1a]">
+                <div className="text-[10px] text-[#8E9299] uppercase mb-1">Links</div>
+                <div className="text-xl font-mono">{INITIAL_LINKS.length}</div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-[11px] font-mono tracking-widest text-[#8E9299] uppercase mb-4">Platform Activity</h2>
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs mb-1">
+                  <span className="text-[#8E9299]">Platform 1</span>
+                  <span>{platform1Count} connections</span>
+                </div>
+                <div className="h-1 bg-[#1a1a1a] rounded-full overflow-hidden">
+                  <div className="h-full bg-[#F27D26] w-[60%]" />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <div className="flex justify-between text-xs mb-1">
+                  <span className="text-[#8E9299]">Platform 2</span>
+                  <span>{platform2Count} connections</span>
+                </div>
+                <div className="h-1 bg-[#1a1a1a] rounded-full overflow-hidden">
+                  <div className="h-full bg-[#F27D26] w-[40%]" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <AnimatePresence mode="wait">
+            {selectedNode && (
+              <motion.section
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="bg-[#151619] p-4 rounded-xl border border-[#F27D26]/30 shadow-[0_0_15px_rgba(242,125,38,0.1)]"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-[#F27D26]/10 rounded-lg">
+                    {selectedNode.type === "platform" ? <Share2 size={16} className="text-[#F27D26]" /> : <User size={16} className="text-[#F27D26]" />}
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold leading-none">{selectedNode.name}</h3>
+                    <span className="text-[10px] text-[#8E9299] uppercase tracking-wider">{selectedNode.type}</span>
+                  </div>
+                </div>
+                <div className="text-xs text-[#8E9299] space-y-2">
+                  <p>Identifier: <span className="text-[#fff] font-mono">{selectedNode.id}</span></p>
+                  <p>Status: <span className="text-emerald-400">Connected</span></p>
+                </div>
+              </motion.section>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <footer className="p-4 border-t border-[#1a1a1a] bg-[#050505] text-[10px] text-[#444] font-mono flex justify-between">
+          <span>SCANNING...</span>
+          <span>LATENCY: 12ms</span>
+        </footer>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 relative flex flex-col">
+        {/* Navigation / Toolbar */}
+        <div className="absolute top-6 left-6 z-10 flex gap-2">
+          <div className="bg-[#1a1a1a]/80 backdrop-blur-md border border-[#ffffff10] px-3 py-1.5 rounded-full flex items-center gap-2 shadow-xl">
+            <MousePointer2 size={14} className="text-[#F27D26]" />
+            <span className="text-xs font-medium text-[#fff]">Interactive Mode</span>
+          </div>
+          <div className="bg-[#1a1a1a]/80 backdrop-blur-md border border-[#ffffff10] px-3 py-1.5 rounded-full flex items-center gap-2 shadow-xl hover:bg-[#222]/80 cursor-pointer transition-colors" onClick={() => setSelectedNode(null)}>
+            <Info size={14} className="text-[#8E9299]" />
+            <span className="text-xs font-medium text-[#8E9299]">Reset View</span>
+          </div>
+        </div>
+
+        <Graph 
+          nodes={INITIAL_NODES} 
+          links={INITIAL_LINKS} 
+          onNodeClick={(node) => setSelectedNode(node)} 
+        />
+
+        <AIAssistant graphData={{ nodes: INITIAL_NODES, links: INITIAL_LINKS }} />
+
+        {/* Legend */}
+        <div className="absolute bottom-6 right-6 z-10 bg-[#0a0a0a]/90 backdrop-blur-lg border border-[#1a1a1a] p-4 rounded-xl shadow-2xl space-y-2 min-w-[160px]">
+          <div className="text-[10px] text-[#8E9299] uppercase tracking-widest font-mono mb-2 border-b border-[#1a1a1a] pb-1">Legend</div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#F27D26]" />
+            <span className="text-xs text-[#8E9299]">Media Platform</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#444] border border-[#fff]" />
+            <span className="text-xs text-[#8E9299]">Member / Person</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-[1px] bg-[#444]" />
+            <span className="text-xs text-[#8E9299]">Connection</span>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
