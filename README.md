@@ -2,25 +2,25 @@
 
 ![Network Cover](./src/assets/images/network_cover_1779108311791.png)
 
-## Overview
-**Media Network Explorer** is an interactive social graph visualization tool designed to map the interpersonal and structural connections within student media platforms. It offers a clear, dynamic view of how different platforms are linked through shared members and organizational relationships.
+## Pregled
+**Media Network Explorer** je interaktivni alat za vizualizaciju društvenog grafa dizajniran za mapiranje međuljudskih i strukturalnih veza unutar studentskih medijskih platformi. Nudi jasan, dinamičan prikaz načina na koji su različite platforme povezane putem zajedničkih članova i organizacijskih odnosa.
 
-## Features
-- **Interactive Force-Directed Graph**: Navigate through nodes representing platforms and people using D3.js.
-- **AI-Powered Intelligence**: A built-in Gemini AI assistant that can analyze the network and answer complex relational queries (e.g., "How are Karla and Sara related?").
-- **Real-Time Synergy**: Visual indicators of platform activity and connection density.
-- **Deep Zoom & Interaction**: Pan, zoom, and click on nodes to reveal detailed metadata and connection statuses.
+## Značajke
+- **Interaktivni graf (Force-Directed)**: Krećite se kroz čvorove koji predstavljaju platforme i ljude koristeći D3.js.
+- **AI-potpomognuta inteligencija**: Ugrađeni Gemini AI asistent koji može analizirati mrežu i odgovarati na složene upite o odnosima (npr. "U kakvom su odnosu Karla i Sara?").
+- **Sinergija u stvarnom vremenu**: Vizualni indikatori aktivnosti platforme i gustoće veza.
+- **Duboki zum i interakcija**: Panoramiranje, zumiranje i klikanje na čvorove za prikaz detaljnih metapodataka i statusa veze.
 
-## Tech Stack
+## Tehnološki stog
 - **Frontend**: React 19, TypeScript, Tailwind CSS 4.
-- **Visuals**: D3.js for graph simulation, Motion for smooth UI transitions.
+- **Vizualizacija**: D3.js za simulaciju grafa, Motion za glatke prijelaze sučelja.
 - **AI**: Google Gemini API (@google/genai).
-- **Icons**: Lucide React.
+- **Ikone**: Lucide React.
 
-## Getting Started
-1. **Explore the Graph**: Click and drag nodes to reorganize the layout. Use the scroll wheel to zoom.
-2. **Select Nodes**: Click on any node to view its specific details in the side monitor.
-3. **Ask the AI**: Use the "Intelligence Output" tray at the bottom to ask natural language questions about the network hierarchy.
+## Početak rada
+1. **Istražite graf**: Kliknite i povucite čvorove kako biste reorganizirali raspored. Koristite kotačić miša za zumiranje.
+2. **Odaberite čvorove**: Kliknite na bilo koji čvor kako biste vidjeli njegove specifične detalje u bočnom monitoru.
+3. **Pitajte AI**: Koristite traku "Intelligence Output" na dnu za postavljanje pitanja na prirodnom jeziku o hijerarhiji mreže.
 
 ---
-*Created for the Student Media Ecosystem.*
+*Kreirano za ekosustav studentskih medija.*
