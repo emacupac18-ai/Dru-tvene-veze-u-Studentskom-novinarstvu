@@ -1,4 +1,4 @@
-# Media Network Explorer: A Social Network Analysis of Student Media Platforms
+# Društvene mreže u studentskom novinarstvu te utjecaj na profesionalnu karijeru
 
 **Author:** [User Name]
 **Date:** May 18, 2026
