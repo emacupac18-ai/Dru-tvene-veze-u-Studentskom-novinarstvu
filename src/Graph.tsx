@@ -42,11 +42,18 @@ export default function Graph({ nodes, links, onNodeClick }: GraphProps) {
 
     svg.call(zoom);
 
+    const getTargetRadius = (d: Node) => {
+      if (d.type === "platform") return 50;
+      if (d.type === "professional") return 180;
+      return 350;
+    };
+
     const simulation = d3.forceSimulation<Node>(nodes)
-      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(120))
-      .force("charge", d3.forceManyBody().strength(-400))
+      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(80))
+      .force("charge", d3.forceManyBody().strength(-200))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius(50));
+      .force("radial", d3.forceRadial((d) => getTargetRadius(d as Node), width / 2, height / 2).strength(0.8))
+      .force("collision", d3.forceCollide().radius(45));
 
     const link = g.append("g")
       .attr("stroke", "#444")

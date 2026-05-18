@@ -17,26 +17,26 @@ Aplikacija je izgrađena koristeći moderan full-stack pristup:
 3.  **AI integracija:** Google Gemini API (`@google/genai`) služi kao "Sloj inteligencije". On mapira JSON podatke grafa u kontekste prirodnog jezika, omogućujući korisnicima postavljanje upita o odnosima.
 
 ### Tijek podataka (Data Flow)
-Sljedeći dijagram prikazuje kako podaci teku kroz sustav, od korisničke interakcije do AI analize:
+Sljedeći dijagram prikazuje kako podaci teku kroz sustav, prilagođeno istraživanju studentskog ekosustava:
 
 ```mermaid
 graph TD
-    Korisnik([Korisnik]) -->|Klik/Drag| Graph[D3.js Graf Sučelje]
-    Korisnik -->|Upit na prirodnom jeziku| AI_UI[AI Assistant UI]
+    Korisnik([Istraživač Mreže]) -->|Interakcija| Graph[Mreža Studenata i Platformi]
+    Korisnik -->|Upit o suradnji| AI_UI[AI Sučelje za Analizu]
     
-    subgraph Frontend_Aplikacija [Frontend Aplikacija]
-        GraphData[(JSON Podaci Grafa)] --> Graph
-        GraphData -->|Kontekstualni podaci| AI_Service[Gemini Service]
-        AI_UI -->|Prompt| AI_Service
+    subgraph Struktura_Mreže [Podaci o Ekosustavu]
+        Nodes[(Studenti, Mentori, Platforme)] --> Graph
+        Links{Veze i Suradnje} --> Graph
+        Nodes -->|Semantički kontekst| AI_Service[Gemini Service]
     end
     
-    subgraph AI_Model [Google Gemini AI]
-        AI_Service -->|Prompt + Kontekst| LLM[Gemini-3-Flash]
-        LLM -->|Analiza odnosa| AI_Service
+    subgraph Inteligencija [Analitički Sloj]
+        AI_Service -->|Mapiranje veza| LLM[Gemini-3-Flash]
+        LLM -->|Identifikacija mostova / mentora| AI_Service
     end
     
-    AI_Service -->|Odgovor| AI_UI
-    Graph -->|Odabir čvora| Detalji[Monitor detalja čvora]
+    AI_Service -->|Uvid u društvenu dinamiku| AI_UI
+    Graph -->|Fokus na čvor| Detalji[Profil Studenta/Profesionalca]
 ```
 
 ### Model podataka
@@ -58,7 +58,7 @@ Korištenjem ideja inspiriranih utemeljenjem znanja u stilu NotebookLM-a, aplika
 Studentsko novinarstvo i praktičan rad na medijskim platformama predstavljaju ključan inkubator za razvoj budućih stručnjaka. Kroz rad u ovakvim mrežama, studenti ne samo da stječu tehničke vještine (pisanje, uređivanje, produkcija), već i razvijaju kritičnu mrežu kontakata.
 
 1.  **Razvoj kompetencija:** Rad u dinamičnom okruženju poput Platforme 1 ili 2 zahtijeva timski rad, rješavanje konflikata i visoku razinu prilagodljivosti.
-2.  **Umrežavanje kao profesionalni kapital:** Kao što vizualizacija grafa pokazuje, veze stvorene tijekom studija (poput onih Karle ili Ivana) često postaju temelj za buduće preporuke i poslovne prilike u stvarnom sektoru. Dodatak čvorova "Profesionalac 1" i "Profesionalka 2" demonstrira izravnu poveznicu akademske prakse i industrije, gdje mentori izravno nadgledaju i usmjeravaju rad najaktivnijih studenata.
+2.  **Umrežavanje kao profesionalni kapital:** Kao što vizualizacija grafa pokazuje, veze stvorene tijekom studija (poput onih Karle ili Ivana) često postaju temelj za buduće preporuke i poslovne prilike u stvarnom sektoru. Dodatak čvorova "Profesionalac 1", "Profesionalka 2" i **"Profesionalac 4"** (povezan s Ninom i Mariom) demonstrira izravnu poveznicu akademske prakse i industrije. Posebno je značajan slučaj **Ele (Profesionalka 3)**, koja predstavlja hibridnu ulogu — studenticu koja je tranzicijom u profesionalku zadržala i značajno proširila svoju mrežu na brojne nove čvorove (Nina, Mario, Karla, Ana, Ivan, Loris, Tea), čime postaje ključni mentor-čvor u ekosustavu.
 3.  **Simulacija industrijskih uvjeta:** Interakcija između članova različitih platformi (premošćivanje) omogućuje protok inovativnih ideja koji simulira realne uvjete u medijskoj industriji. Integracija profesionalnih figura u graf dodatno naglašava vertikalnu komunikaciju koja je esencijalna za brzi profesionalni napredak.
 
 ## Zaključak

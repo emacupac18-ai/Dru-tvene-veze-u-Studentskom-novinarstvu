@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 const INITIAL_NODES: Node[] = [
   { id: "p1", name: "Studentska medijska platforma 1", type: "platform" },
   { id: "p2", name: "Studentska medijska platforma 2", type: "platform" },
-  { id: "Ela", name: "Ela", type: "person" },
+  { id: "Ela", name: "Ela (Profesionalka 3)", type: "professional" },
   { id: "Karla", name: "Karla", type: "person" },
   { id: "Tea", name: "Tea", type: "person" },
   { id: "Ana", name: "Ana", type: "person" },
@@ -19,6 +19,7 @@ const INITIAL_NODES: Node[] = [
   { id: "Nina", name: "Nina", type: "person" },
   { id: "prof1", name: "Profesionalac 1", type: "professional" },
   { id: "prof2", name: "Profesionalka 2", type: "professional" },
+  { id: "prof4", name: "Profesionalac 4", type: "professional" },
 ];
 
 const INITIAL_LINKS: Link[] = [
@@ -48,6 +49,17 @@ const INITIAL_LINKS: Link[] = [
   { source: "prof2", target: "Ana" },
   { source: "prof2", target: "Ivan" },
   { source: "prof2", target: "Loris" },
+  // Professional 4 connections
+  { source: "prof4", target: "Nina" },
+  { source: "prof4", target: "Mario" },
+  // Profesionalka 3 (Ela) connections
+  { source: "Ela", target: "Nina" },
+  { source: "Ela", target: "Mario" },
+  { source: "Ela", target: "Karla" },
+  { source: "Ela", target: "Ana" },
+  { source: "Ela", target: "Ivan" },
+  { source: "Ela", target: "Loris" },
+  { source: "Ela", target: "Tea" },
 ];
 
 export default function App() {
