@@ -4,7 +4,7 @@ import * as d3 from "d3";
 export interface Node extends d3.SimulationNodeDatum {
   id: string;
   name: string;
-  type: "platform" | "person";
+  type: "platform" | "person" | "professional";
 }
 
 export interface Link extends d3.SimulationLinkDatum<Node> {
@@ -67,19 +67,27 @@ export default function Graph({ nodes, links, onNodeClick }: GraphProps) {
       .call(drag(simulation));
 
     node.append("circle")
-      .attr("r", d => d.type === "platform" ? 25 : 12)
-      .attr("fill", d => d.type === "platform" ? "#F27D26" : "#444")
+      .attr("r", d => d.type === "platform" ? 25 : (d.type === "professional" ? 20 : 12))
+      .attr("fill", d => {
+        if (d.type === "platform") {
+          return d.id === "p1" ? "#ff4d4d" : (d.id === "p2" ? "#4dabff" : "#F27D26");
+        }
+        if (d.type === "professional") {
+          return "#F27D26"; // Gold/Orange for pros
+        }
+        return "#444";
+      })
       .attr("stroke", "#fff")
       .attr("stroke-width", 2);
 
     node.append("text")
       .text(d => d.name)
-      .attr("x", 15)
+      .attr("x", d => d.type === "platform" ? 30 : 20)
       .attr("y", 5)
       .attr("fill", "#fff")
       .style("font-size", d => d.type === "platform" ? "14px" : "12px")
       .style("font-family", "Inter, sans-serif")
-      .style("font-weight", d => d.type === "platform" ? "600" : "400")
+      .style("font-weight", d => (d.type === "platform" || d.type === "professional") ? "600" : "400")
       .style("pointer-events", "none")
       .style("text-shadow", "0 0 4px #000");
 

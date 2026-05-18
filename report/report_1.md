@@ -16,17 +16,40 @@ Aplikacija je izgrađena koristeći moderan full-stack pristup:
 2.  **Sloj vizualizacije:** D3.js (Data-Driven Documents) korišten je za implementaciju grafa s usmjerenim silama (force-directed graph). Simulacija koristi `forceManyBody` (odbijanje), `forceLink` (povezivost) i `forceCenter` za stvaranje dinamičnog, samoorganizirajućeg rasporeda.
 3.  **AI integracija:** Google Gemini API (`@google/genai`) služi kao "Sloj inteligencije". On mapira JSON podatke grafa u kontekste prirodnog jezika, omogućujući korisnicima postavljanje upita o odnosima.
 
+### Tijek podataka (Data Flow)
+Sljedeći dijagram prikazuje kako podaci teku kroz sustav, od korisničke interakcije do AI analize:
+
+```mermaid
+graph TD
+    Korisnik([Korisnik]) -->|Klik/Drag| Graph[D3.js Graf Sučelje]
+    Korisnik -->|Upit na prirodnom jeziku| AI_UI[AI Assistant UI]
+    
+    subgraph Frontend_Aplikacija [Frontend Aplikacija]
+        GraphData[(JSON Podaci Grafa)] --> Graph
+        GraphData -->|Kontekstualni podaci| AI_Service[Gemini Service]
+        AI_UI -->|Prompt| AI_Service
+    end
+    
+    subgraph AI_Model [Google Gemini AI]
+        AI_Service -->|Prompt + Kontekst| LLM[Gemini-3-Flash]
+        LLM -->|Analiza odnosa| AI_Service
+    end
+    
+    AI_Service -->|Odgovor| AI_UI
+    Graph -->|Odabir čvora| Detalji[Monitor detalja čvora]
+```
+
 ### Model podataka
 Mreža se sastoji od usmjerenog grafa $G = (V, E)$ gdje:
 -   $V$ (Vrhovi/Čvorovi) predstavljaju ili "Platforme" ili "Ljude".
 -   $E$ (Bridovi/Veze) predstavljaju članstvo ili suradničke veze.
--   Čvor "Karla" služi kao kritični premošćujući vrh koji povezuje Platformu 1 i Platformu 2.
+-   Čvorovi "Karla" i "Sara" služe kao kritični premošćujući vrhovi koji povezuju Platformu 1 i Platformu 2.
 
 ## Rasprava: Povezivost i ljudski odnosi
 Analiza otkriva fenomen mreže "malog svijeta" (Small World) unutar ekosustava studentskih medija.
 
 ### Fenomen mosta
-Ključni nalaz u topologiji grafa je uloga Karle. U teoriji društvenih mreža, premošćujući čvorovi imaju visoku centralnost između (betweenness centrality). Karla djeluje kao spona između Platforme 1 i Platforme 2. Ova povezivost sugerira da Platforma 2 ima više "curenja" ili dijeljenog znanja s Platformom 1 nego što bi to mogle imati druge izolirane platforme.
+Ključni nalaz u topologiji grafa je uloga Karle i Sare. U teoriji društvenih mreža, premošćujući čvorovi imaju visoku centralnost između (betweenness centrality). One djeluju kao spone između Platforme 1 i Platforme 2. Ova povezivost sugerira da Platforma 2 ima značajno "curenja" ili dijeljenog znanja s Platformom 1, stvarajući čvršću koheziju između različitih organizacijskih tijela. Za razliku od njih, Ana je sada isključivo fokusirana na Platformu 1, što smanjuje redundantnost njezine uloge, ali jača internu strukturu prve platforme.
 
 ### AI utemeljenje
 Korištenjem ideja inspiriranih utemeljenjem znanja u stilu NotebookLM-a, aplikacija ne pokazuje samo linije; ona ih razumije. Kada se zatraži informacija o Karli i Sari, AI identificira njihovu zajedničku platformu (Platforma 2) i naglašava organizacijski put. Ovaj semantički sloj transformira sirove podatke u primjenjivu društvenu inteligenciju.
@@ -35,8 +58,8 @@ Korištenjem ideja inspiriranih utemeljenjem znanja u stilu NotebookLM-a, aplika
 Studentsko novinarstvo i praktičan rad na medijskim platformama predstavljaju ključan inkubator za razvoj budućih stručnjaka. Kroz rad u ovakvim mrežama, studenti ne samo da stječu tehničke vještine (pisanje, uređivanje, produkcija), već i razvijaju kritičnu mrežu kontakata.
 
 1.  **Razvoj kompetencija:** Rad u dinamičnom okruženju poput Platforme 1 ili 2 zahtijeva timski rad, rješavanje konflikata i visoku razinu prilagodljivosti.
-2.  **Umrežavanje kao profesionalni kapital:** Kao što vizualizacija grafa pokazuje, veze stvorene tijekom studija (poput onih Karle ili Ivana) često postaju temelj za buduće preporuke i poslovne prilike u stvarnom sektoru.
-3.  **Simulacija industrijskih uvjeta:** Interakcija između članova različitih platformi (premošćivanje) omogućuje protok inovativnih ideja koji simulira realne uvjete u medijskoj industriji, pripremajući studente za kompleksne hijerarhijske strukture modernih redakcija. Praktično iskustvo stečeno ovdje smanjuje jaz između teorijskog obrazovanja i zahtjeva tržišta rada.
+2.  **Umrežavanje kao profesionalni kapital:** Kao što vizualizacija grafa pokazuje, veze stvorene tijekom studija (poput onih Karle ili Ivana) često postaju temelj za buduće preporuke i poslovne prilike u stvarnom sektoru. Dodatak čvorova "Profesionalac 1" i "Profesionalka 2" demonstrira izravnu poveznicu akademske prakse i industrije, gdje mentori izravno nadgledaju i usmjeravaju rad najaktivnijih studenata.
+3.  **Simulacija industrijskih uvjeta:** Interakcija između članova različitih platformi (premošćivanje) omogućuje protok inovativnih ideja koji simulira realne uvjete u medijskoj industriji. Integracija profesionalnih figura u graf dodatno naglašava vertikalnu komunikaciju koja je esencijalna za brzi profesionalni napredak.
 
 ## Zaključak
 Media Network Explorer učinkovito premošćuje jaz između sirovih organizacijskih podataka i društvenog razumijevanja. Buduće iteracije trebale bi se fokusirati na unos podataka u stvarnom vremenu i mapiranje vremenskih promjena u članstvu kako bi se promatralo kako se gustoća mreže razvija tijekom semestra.

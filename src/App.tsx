@@ -17,6 +17,8 @@ const INITIAL_NODES: Node[] = [
   { id: "Sara", name: "Sara", type: "person" },
   { id: "Mario", name: "Mario", type: "person" },
   { id: "Nina", name: "Nina", type: "person" },
+  { id: "prof1", name: "Profesionalac 1", type: "professional" },
+  { id: "prof2", name: "Profesionalka 2", type: "professional" },
 ];
 
 const INITIAL_LINKS: Link[] = [
@@ -35,6 +37,17 @@ const INITIAL_LINKS: Link[] = [
   { source: "p2", target: "Nina" },
   // Special: Karla connected to both
   { source: "p2", target: "Karla" },
+  // Sara also connected to Platform 1
+  { source: "p1", target: "Sara" },
+  // Professional connections
+  { source: "prof1", target: "Karla" },
+  { source: "prof1", target: "Hana" },
+  { source: "prof1", target: "Sara" },
+  { source: "prof2", target: "Ela" },
+  { source: "prof2", target: "Tea" },
+  { source: "prof2", target: "Ana" },
+  { source: "prof2", target: "Ivan" },
+  { source: "prof2", target: "Loris" },
 ];
 
 export default function App() {
@@ -82,7 +95,7 @@ export default function App() {
                   <span>{platform1Count} connections</span>
                 </div>
                 <div className="h-1 bg-[#1a1a1a] rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F27D26] w-[60%]" />
+                  <div className="h-full bg-[#ff4d4d] w-[60%]" />
                 </div>
               </div>
               <div className="space-y-1">
@@ -91,7 +104,7 @@ export default function App() {
                   <span>{platform2Count} connections</span>
                 </div>
                 <div className="h-1 bg-[#1a1a1a] rounded-full overflow-hidden">
-                  <div className="h-full bg-[#F27D26] w-[40%]" />
+                  <div className="h-full bg-[#4dabff] w-[40%]" />
                 </div>
               </div>
             </div>
@@ -155,16 +168,24 @@ export default function App() {
         <div className="absolute bottom-6 right-6 z-10 bg-[#0a0a0a]/90 backdrop-blur-lg border border-[#1a1a1a] p-4 rounded-xl shadow-2xl space-y-2 min-w-[160px]">
           <div className="text-[10px] text-[#8E9299] uppercase tracking-widest font-mono mb-2 border-b border-[#1a1a1a] pb-1">Legend</div>
           <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#ff4d4d]" />
+            <span className="text-xs text-[#8E9299]">Platforma 1</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#4dabff]" />
+            <span className="text-xs text-[#8E9299]">Platforma 2</span>
+          </div>
+          <div className="flex items-center gap-3">
             <div className="w-3 h-3 rounded-full bg-[#F27D26]" />
-            <span className="text-xs text-[#8E9299]">Media Platform</span>
+            <span className="text-xs text-[#8E9299]">Profesionalac / Mentor</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-3 h-3 rounded-full bg-[#444] border border-[#fff]" />
-            <span className="text-xs text-[#8E9299]">Member / Person</span>
+            <span className="text-xs text-[#8E9299]">Član / Osoba</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-4 h-[1px] bg-[#444]" />
-            <span className="text-xs text-[#8E9299]">Connection</span>
+            <span className="text-xs text-[#8E9299]">Veza</span>
           </div>
         </div>
       </main>
