@@ -71,7 +71,7 @@ export default function ReportView() {
       icon: <Award className="text-[#4dabff]" size={18} />,
       summary: "Usvajanje ključnog zanatskog dijela novinarskog posla i vještina, djelujući po principu 'učenja kroz rad' (learning by doing).",
       points: [
-        "Feedback iskusnih mentora: Alena Čemeljić, Antonela Galić-Pruša i drugi preslušavali su svaku minutu programa.",
+        "Feedback iskusnih mentora: mentori X3, X4 i drugi preslušavali su svaku minutu programa.",
         "Rad s profesionalnom opremom: Snalaženje s mikrofonima, miješalima i montiranjem, što nema svatko priliku.",
         "Tehnička i moralna etika: Usvajanje strogih novinarskih temelja, poput pravila '7 provjera informacija' i odgovora na 5 W pitanja."
       ],
@@ -110,7 +110,7 @@ export default function ReportView() {
         "Kišobran kao referenca: Dugoročni rad stoji u životopisu kao neoborivi dokaz inovativnosti i proaktivnosti."
       ],
       quotes: [
-        "Rektorica Snježana Prijić Samaržija... Ta žena bi se meni uvijek odazvala samo zato što smo izgradile odnos još kad sam ja bila klinka, znala me kao studenticu... To su sve ljudi s kojima sam surađivala vrlo mlada, a dan danas surađujem.",
+        "Rektorica X6... Ta žena bi se meni uvijek odazvala samo zato što smo izgradile odnos još kad sam ja bila klinka, znala me kao studenticu... To su sve ljudi s kojima sam surađivala vrlo mlada, a dan danas surađujem.",
         "Kištobran u ovom životopisu stoji i to je ono za što me najčešće ljudi pitaju na razgovorima... Da vide nekog inovativnog, da nije samo nastava, knjižnica, nego netko ko zna pisati i snalaziti se.",
         "Definitivno zapravo mislim da je možda druga najbolja stvar kod volontiranja osim što učiš skillove, ti kontakti. Jer općenito umrežavanje s ljudima i to s mentorima je najljepši dio toga... možeš ih nazvati u bilo kojem trenutku."
       ]
@@ -129,7 +129,7 @@ export default function ReportView() {
       quotes: [
         "Nikako, to je jedan od najtežih... učila sam u studiju pa bi došla doma pa bi me urednik zvao 'možeš uletit, ovaj je bolestan'... U zadnjih godinu dana rijetko kad sam mogla biti na predavanju jer se to već zahuktalo.",
         "Evo uz taj faks, balans je bio... najdinamičniji period života. Ti si tamo od 10, 22:30 do jedan ujutro... učenje za ispite, a ja neću ići na ispit ako neću dobiti pet.",
-        "Ponedjeljkom sam bio u šihti od ponoći do tri, trebalo je pripremiti, a utorkom sam imao predavanje u 9 ujutro kod profesorice Prijić-Samaržije... to je bilo najteže, ustati ujutro i biti donekle suvisao."
+        "Ponedjeljkom sam bio u šihti od ponoći do tri, trebalo je pripremiti, a utorkom sam imao predavanje u 9 ujutro kod profesorice X6... to je bilo najteže, ustati ujutro i biti donekle suvisao."
       ]
     }
   ];
@@ -270,7 +270,7 @@ export default function ReportView() {
                   <div className="space-y-1">
                     <h4 className="text-sm font-bold text-white">Sloj inteligencije (Google Gemini AI)</h4>
                     <p className="text-xs text-[#8E9299] leading-relaxed">
-                      Putem moderne `@google/genai` TypeScript SDK platforme, implementiran je analitički asistent integriran izravno u bazu i mrežnu strukturu. Može prepoznati trans-platformske 'mostove' poput Karle te hibridne čvorove poput Ele.
+                      Putem moderne `@google/genai` TypeScript SDK platforme, implementiran je analitički asistent integriran izravno u bazu i mrežnu strukturu. Može prepoznati trans-platformske 'mostove' poput X2 te hibridne čvorove poput X10.
                     </p>
                   </div>
                 </div>
@@ -316,7 +316,7 @@ export default function ReportView() {
                   <div className="flex items-center gap-3 bg-[#151619]/50 p-3 rounded-lg border border-[#1a1a1a]">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <p className="text-xs text-[#8E9299]">
-                      <strong>Mrežna topologija:</strong> Analiza dokazuje da su <strong>Sara</strong> i <strong>Karla</strong> kritični premošćujući čvorovi visoke centralnosti posredovanja koji spajaju dvije odvojene ključne medijske domene.
+                      <strong>Mrežna topologija:</strong> Analiza dokazuje da su <strong>X1</strong> i <strong>X2</strong> kritični premošćujući čvorovi visoke centralnosti posredovanja koji spajaju dvije odvojene ključne medijske domene.
                     </p>
                   </div>
                 </div>

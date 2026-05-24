@@ -50,7 +50,7 @@ graph TD
 ```
 
 ### Topologija mreže
-Mreža se formalno modelira kao usmjereni graf $G = (V, E)$, gdje su ključni čvorovi definirani unutar tri kategorije (Studentske platforme, Studenti/Članovi i Profesionalci/Mentori). Topološka analiza pokazuje da su se osobe poput **Sare** i **Karle** pokazale kao kritični premošćujući čvorovi visoke centralnosti posredovanja (*betweenness centrality*) koji spajaju dvije odvojene ključne medijske domene.
+Mreža se formalno modelira kao usmjereni graf $G = (V, E)$, gdje su ključni čvorovi definirani unutar tri kategorije (Studentske platforme, Studenti/Članovi i Profesionalci/Mentori). Topološka analiza pokazuje da su se osobe poput **X1** i **X2** pokazale kao kritični premošćujući čvorovi visoke centralnosti posredovanja (*betweenness centrality*) koji spajaju dvije odvojene ključne medijske domene.
 
 ---
 
@@ -72,7 +72,7 @@ Drugi dominantan motiv koji proizlazi iz iskaza je potpuni raskorak između sveu
 
 ### 3. **Praktičan rad i stjecanje zanatskih kompetencija ('Learning by doing')**
 Unatoč nedostatku formalne podrške, studentske su platforme služile kao iznimno učinkovite platforme za stjecanje onoga što sugovornici nazivaju *"zanatskim dijelom posla"*:
-- **Fokusirano mentorstvo u praksi:** Dok je u početku vladalo načelo snalaženja i učenja na vlastitim pogreškama, ključan korak bio je angažman iskusnih profesionalaca s Radio Rijeke (npr. Alena Čemeljić, Antonela Galić-Pruša, Boris Kanazir). Feedback je bio izravan, temeljit i na dnevnoj bazi: *"preslušavali su svaku minutu našeg programa. Dobivali smo detaljne feedbackove na voditeljski dio, na glazbu, na džinglove, na previše smijanja u eteru... doslovno na sve."*
+- **Fokusirano mentorstvo u praksi:** Dok je u početku vladalo načelo snalaženja i učenja na vlastitim pogreškama, ključan korak bio je angažman iskusnih profesionalaca s Radio Rijeke (npr. mentori **X3**, **X4**, **X5**). Feedback je bio izravan, temeljit i na dnevnoj bazi: *"preslušavali su svaku minutu našeg programa. Dobivali smo detaljne feedbackove na voditeljski dio, na glazbu, na džinglove, na previše smijanja u eteru... doslovno na sve."*
 - **Pristup profesionalnoj opremi:** Iskustvo rada s miješalima, mikrofonima i softverom za montažu predstavlja ključnu prednost: *"Naučio sam raditi s opremom to mi je jako bitno jer nema svatko priliku... imati pristupu ovakvoj dobroj opremi."*
 - **Profesionalna pravila i etika:** Studenti su usvojili fundamentalna novinarska pravila, poput pravila "7 provjera": *"da 7 puta provjeriš informaciju, da nazoveš 7 različitih izvora... da uvijek moraš imat više strana priče"*, te pisanje vijesti po principu 5 zlatnih pitanja (Tko? Što? Kada? Gdje? Zašto?).
 
@@ -84,8 +84,8 @@ Rad u medijima transformirao je sugovornike iz akademski pasivnih jedinki u akti
 
 ### 5. **Socijalni kapital i dugoročne mreže (Networking)**
 Ova tema izravno korespondira s našom mrežnom vizualizacijom i dokazuje da su studentski mediji epicentar stvaranja nemjerljivog socijalnog kapitala:
-- **Dostupnost autoriteta:** Kroz studentske intervjue stvoreni su kontakti koji traju desetljećima. Jedna od sugovornica opisuje odnos s bivšom rektoricom Snježanom Prijić-Samaržija i bivšim rektorom Perom Lučinom: *"ta žena bi se meni uvijek odazvala samo zato što smo izgradile odnos još kad sam ja bila klinka... znala me kao studenticu"*. Ta mreža kasnije eliminira potrebu za *"vlačenjem za rukav"* u profesionalnoj karijeri.
-- **Doživotna prijateljstva unutar struke:** Generirani čvorovi u grafu nisu samo profesionalni odnosi već i duboka prijateljstva. Mnogi akteri (poput **Ive Črnjar**, **Borisa Kanazira** i **Aleksandre Ignatoski**) nastavili su raditi u istoj industriji, surađujući i razmjenjujući resurse kroz razne agencije, medije i regionalne institucije.
+- **Dostupnost autoriteta:** Kroz studentske intervjue stvoreni su kontakti koji traju desetljećima. Jedna od sugovornica opisuje odnos s bivšom rektoricom **X6** i bivšim rektorom **X7**: *"ta žena bi se meni uvijek odazvala samo zato što smo izgradile odnos još kad sam ja bila klinka... znala me kao studenticu"*. Ta mreža kasnije eliminira potrebu za *"vlačenjem za rukav"* u profesionalnoj karijeri.
+- **Doživotna prijateljstva unutar struke:** Generirani čvorovi u grafu nisu samo profesionalni odnosi već i duboka prijateljstva. Mnogi akteri (poput kolegice **X8**, mentora **X5** i kolegice **X9**) nastavili su raditi u istoj industriji, surađujući i razmjenjujući resurse kroz razne agencije, medije i regionalne institucije.
 
 ### 6. **Usklađivanje obveza i izazovi akademskog preopterećenja**
 Empirijski podaci otkrivaju i zahtjevnu stranu visokog studentskog angažmana – ekstremne napore koji su potrebni za balansiranje zahtjevnih studija i rada do kasno u noć:
@@ -96,7 +96,7 @@ Empirijski podaci otkrivaju i zahtjevnu stranu visokog studentskog angažmana �
 ---
 
 ## Zaključak i preporuke
-Vizualizirani mrežni model i kvalitativna analiza pokazuju da studentski mediji funkcioniraju kao vitalna, ali nedovoljno zaštićena infrastruktura. Mentori (poput Profesionalca 1 i Profesionalke 2) te iskusni studenti s hibridnim ulogama (poput Ele odnosno Profesionalke 3) predstavljaju srž ovog sustava koji stvara gotove stručnjake za tržište.
+Vizualizirani mrežni model i kvalitativna analiza pokazuju da studentski mediji funkcioniraju kao vitalna, ali nedovoljno zaštićena infrastruktura. Mentori (poput Profesionalca 1 i Profesionalke 2) te iskusni studenti s hibridnim ulogama (poput kolegice **X10** odnosno Profesionalke 3) predstavljaju srž ovog sustava koji stvara gotove stručnjake za tržište.
 
 Kako bi se poboljšao ovaj sustav, preporučuje se:
 1. **Kurikularna integracija:** Implementacija studentske prakse u obliku izbornih kolegija s dodijeljenim ECTS bodovima.
