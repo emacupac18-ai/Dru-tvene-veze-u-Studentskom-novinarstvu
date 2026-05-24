@@ -319,6 +319,23 @@ export default function ReportView() {
                       <strong>Mrežna topologija:</strong> Analiza dokazuje da su <strong>X1</strong> i <strong>X2</strong> kritični premošćujući čvorovi visoke centralnosti posredovanja koji spajaju dvije odvojene ključne medijske domene.
                     </p>
                   </div>
+
+                  <div className="h-[1px] bg-[#1a1a1a]" />
+
+                  <div className="space-y-3">
+                    <div className="text-[10px] font-mono tracking-wider text-[#8E9299] uppercase">Modelirana vizualna karta (Network Graph map)</div>
+                    <div className="border border-[#1a1a1a] rounded-lg overflow-hidden bg-black/60 shadow-2xl p-1">
+                      <img 
+                        src="/src/assets/images/network_graph_1779653822863.png" 
+                        alt="Media Network Explorer Graph Map" 
+                        className="w-full h-auto opacity-90 hover:opacity-100 transition-all rounded-md duration-300"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <p className="text-[10px] text-[#666] italic text-center leading-relaxed">
+                      Slika 1. Prikaz rasporeda sila (D3.js Force) s crvenim i plavim klasterima te ljubičastim premošćujućim čvorovima (X1 i X2). Redom su iscrtani i integrirani mentori u podnožju dizajna.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

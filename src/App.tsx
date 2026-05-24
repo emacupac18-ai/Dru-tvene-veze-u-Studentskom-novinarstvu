@@ -258,27 +258,35 @@ export default function App() {
             <AIAssistant graphData={{ nodes: INITIAL_NODES, links: INITIAL_LINKS }} />
 
             {/* Legend */}
-            <div className="absolute bottom-6 right-6 z-10 bg-[#0a0a0a]/90 backdrop-blur-lg border border-[#1a1a1a] p-4 rounded-xl shadow-2xl space-y-2 min-w-[160px]">
-              <div className="text-[10px] text-[#8E9299] uppercase tracking-widest font-mono mb-2 border-b border-[#1a1a1a] pb-1">Legend</div>
+            <div className="absolute bottom-6 right-6 z-10 bg-[#0a0a0a]/90 backdrop-blur-lg border border-[#1a1a1a] p-4 rounded-xl shadow-2xl space-y-2.5 min-w-[200px] select-none">
+              <div className="text-[10px] text-[#8E9299] uppercase tracking-widest font-mono mb-2 border-b border-[#1a1a1a] pb-1">Legenda mreže</div>
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#ff4d4d]" />
-                <span className="text-xs text-[#8E9299]">Platforma 1</span>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#ef4444] shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+                <span className="text-[11px] text-white font-medium">Platforma 1</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#4dabff]" />
-                <span className="text-xs text-[#8E9299]">Platforma 2</span>
+                <div className="w-3.5 h-3.5 rounded-full bg-[#3b82f6] shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                <span className="text-[11px] text-white font-medium">Platforma 2</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#F27D26]" />
-                <span className="text-xs text-[#8E9299]">Profesionalac / Mentor</span>
+                <div className="w-3 h-3 rounded-full bg-[#f87171]" />
+                <span className="text-[11px] text-[#8E9299]">Članovi Platforme 1</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#444] border border-[#fff]" />
-                <span className="text-xs text-[#8E9299]">Član / Osoba</span>
+                <div className="w-3 h-3 rounded-full bg-[#60a5fa]" />
+                <span className="text-[11px] text-[#8E9299]">Članovi Platforme 2</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-4 h-[1px] bg-[#444]" />
-                <span className="text-xs text-[#8E9299]">Veza</span>
+                <div className="w-3 h-3 rounded-full bg-[#a855f7] border border-white/20 shadow-[0_0_6px_rgba(168,85,247,0.4)]" />
+                <span className="text-[11px] text-purple-300 font-semibold">Su-povezani (Obje)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-[#fbbf24]" />
+                <span className="text-[11px] text-amber-200">Mentori / Stručnjaci</span>
+              </div>
+              <div className="pt-1.5 border-t border-[#1a1a1a] flex items-center gap-3">
+                <div className="w-4 h-[2px] bg-purple-500/50" />
+                <span className="text-[11px] text-[#666]">Glavni mostovi</span>
               </div>
             </div>
           </>

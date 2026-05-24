@@ -42,26 +42,129 @@ export default function Graph({ nodes, links, onNodeClick }: GraphProps) {
 
     svg.call(zoom);
 
-    const getTargetRadius = (d: Node) => {
-      if (d.type === "platform") return 50;
-      if (d.type === "professional") return 180;
-      return 350;
+    // Analyze connection status of each node relative to main platforms
+    const nodeConnections = new Map<string, { p1: boolean; p2: boolean }>();
+    nodes.forEach(n => {
+      nodeConnections.set(n.id, { p1: false, p2: false });
+    });
+
+    links.forEach(l => {
+      const sId = typeof l.source === "object" ? (l.source as Node).id : (l.source as string);
+      const tId = typeof l.target === "object" ? (l.target as Node).id : (l.target as string);
+
+      if (sId === "p1" || tId === "p1") {
+        const otherId = sId === "p1" ? tId : sId;
+        const conn = nodeConnections.get(otherId) || { p1: false, p2: false };
+        conn.p1 = true;
+        nodeConnections.set(otherId, conn);
+      }
+      if (sId === "p2" || tId === "p2") {
+        const otherId = sId === "p2" ? tId : sId;
+        const conn = nodeConnections.get(otherId) || { p1: false, p2: false };
+        conn.p2 = true;
+        nodeConnections.set(otherId, conn);
+      }
+    });
+
+    // Color definitions
+    const getColor = (d: Node) => {
+      if (d.id === "p1") return "#ef4444"; // Strong Platform 1 Red
+      if (d.id === "p2") return "#3b82f6"; // Strong Platform 2 Blue
+
+      const conn = nodeConnections.get(d.id);
+      const isP1 = conn?.p1;
+      const isP2 = conn?.p2;
+
+      if (isP1 && isP2) return "#a855f7"; // purple for both (Sara, Karla)
+      if (isP1) return "#f87171"; // soft red for platform 1
+      if (isP2) return "#60a5fa"; // soft blue for platform 2
+
+      if (d.type === "professional") return "#fbbf24"; // golden yellow for general pros
+      return "#9ca3af"; // neutral gray
+    };
+
+    // Advanced dynamic layout coordinates positioning (pyramid-like twin orbit layout)
+    const getTargetX = (d: Node, w: number) => {
+      if (d.id === "p1") return w / 2 - 160;
+      if (d.id === "p2") return w / 2 + 160;
+
+      const conn = nodeConnections.get(d.id);
+      const isP1 = conn?.p1;
+      const isP2 = conn?.p2;
+
+      if (isP1 && isP2) return w / 2; // Purple bridged nodes centered horizontally
+      if (isP1) return w / 2 - 180; // platform 1 network clustered left
+      if (isP2) return w / 2 + 180; // platform 2 network clustered right
+
+      if (d.id === "prof1") return w / 2 + 80;
+      if (d.id === "prof2") return w / 2 - 220;
+      if (d.id === "prof4") return w / 2 + 220;
+
+      return w / 2;
+    };
+
+    const getTargetY = (d: Node, h: number) => {
+      if (d.id === "p1" || d.id === "p2") return h / 2 - 20;
+
+      const conn = nodeConnections.get(d.id);
+      const isP1 = conn?.p1;
+      const isP2 = conn?.p2;
+
+      // Make a beautiful pyramid / bridge:
+      if (isP1 && isP2) return h / 2 - 140; // Purple connected nodes elevated high like a communication bridge / arch
+      if (d.type === "professional") return h / 2 + 100; // professionals grouped beautifully as foundational rows at the bottom
+      
+      return h / 2 + 20; // students floating in a friendly orbit around their centers
     };
 
     const simulation = d3.forceSimulation<Node>(nodes)
-      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(80))
-      .force("charge", d3.forceManyBody().strength(-200))
+      .force("link", d3.forceLink<Node, Link>(links).id(d => d.id).distance(100))
+      .force("charge", d3.forceManyBody().strength(-300))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("radial", d3.forceRadial((d) => getTargetRadius(d as Node), width / 2, height / 2).strength(0.8))
-      .force("collision", d3.forceCollide().radius(45));
+      .force("x", d3.forceX<Node>((d) => getTargetX(d, width)).strength(0.35))
+      .force("y", d3.forceY<Node>((d) => getTargetY(d, height)).strength(0.35))
+      .force("collision", d3.forceCollide<Node>().radius(d => d.type === "platform" ? 45 : 35));
+
+    // Custom coloring for links too! Make them fit the cluster colors.
+    const getLinkStroke = (l: Link) => {
+      const sId = typeof l.source === "object" ? (l.source as Node).id : (l.source as string);
+      const tId = typeof l.target === "object" ? (l.target as Node).id : (l.target as string);
+
+      const sConn = nodeConnections.get(sId);
+      const tConn = nodeConnections.get(tId);
+
+      const isS_Both = sConn?.p1 && sConn?.p2;
+      const isT_Both = tConn?.p1 && tConn?.p2;
+
+      if (sId === "p1" && tId === "p2") return "rgba(168, 85, 247, 0.5)"; // Purple link between platforms
+
+      if (isS_Both || isT_Both || sId === "Karla" || tId === "Karla" || sId === "Sara" || tId === "Sara") {
+        return "rgba(168, 85, 247, 0.45)"; // Soft purple for connections involving bridges
+      }
+
+      if (sId === "p1" || tId === "p1" || (sConn?.p1 && !sConn?.p2) || (tConn?.p1 && !tConn?.p2)) {
+        return "rgba(239, 68, 68, 0.25)"; // Gentle red for P1 connections
+      }
+
+      if (sId === "p2" || tId === "p2" || (sConn?.p2 && !sConn?.p1) || (tConn?.p2 && !tConn?.p1)) {
+        return "rgba(59, 130, 246, 0.25)"; // Gentle blue for P2 connections
+      }
+
+      return "rgba(255, 255, 255, 0.15)";
+    };
 
     const link = g.append("g")
-      .attr("stroke", "#444")
-      .attr("stroke-opacity", 0.6)
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke-width", 2);
+      .attr("stroke", d => getLinkStroke(d))
+      .attr("stroke-width", d => {
+        const sId = typeof d.source === "object" ? (d.source as Node).id : (d.source as string);
+        const tId = typeof d.target === "object" ? (d.target as Node).id : (d.target as string);
+        // Platform to Platform or Platform to Bridge can be slightly thicker
+        if ((sId === "p1" && tId === "p2") || sId === "Karla" || tId === "Karla" || sId === "Sara" || tId === "Sara") return 3;
+        return 1.5;
+      });
 
     const node = g.append("g")
       .selectAll("g")
@@ -73,30 +176,34 @@ export default function Graph({ nodes, links, onNodeClick }: GraphProps) {
       })
       .call(drag(simulation));
 
+    // Custom halos for platforms and bridged nodes
     node.append("circle")
-      .attr("r", d => d.type === "platform" ? 25 : (d.type === "professional" ? 20 : 12))
-      .attr("fill", d => {
-        if (d.type === "platform") {
-          return d.id === "p1" ? "#ff4d4d" : (d.id === "p2" ? "#4dabff" : "#F27D26");
-        }
-        if (d.type === "professional") {
-          return "#F27D26"; // Gold/Orange for pros
-        }
-        return "#444";
-      })
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 2);
+      .attr("r", d => d.type === "platform" ? 38 : (d.id === "Karla" || d.id === "Sara" ? 22 : 0))
+      .attr("fill", "none")
+      .attr("stroke", d => getColor(d))
+      .attr("stroke-width", 1)
+      .attr("stroke-opacity", 0.3)
+      .style("filter", "drop-shadow(0 0 8px currentColor)")
+      .style("animation", "pulse 4s infinite ease-in-out");
 
+    node.append("circle")
+      .attr("r", d => d.type === "platform" ? 25 : (d.type === "professional" ? 18 : 12))
+      .attr("fill", d => getColor(d))
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", d => d.type === "platform" ? 3 : (d.id === "Karla" || d.id === "Sara" ? 2.5 : 1.5))
+      .style("filter", d => d.type === "platform" ? "drop-shadow(0 0 10px rgba(0,0,0,0.5))" : "none");
+
+    // Elegant text labels with clean layout
     node.append("text")
       .text(d => d.name)
-      .attr("x", d => d.type === "platform" ? 30 : 20)
-      .attr("y", 5)
+      .attr("x", d => d.type === "platform" ? 32 : 18)
+      .attr("y", 4)
       .attr("fill", "#fff")
-      .style("font-size", d => d.type === "platform" ? "14px" : "12px")
+      .style("font-size", d => d.type === "platform" ? "12px" : "11px")
       .style("font-family", "Inter, sans-serif")
-      .style("font-weight", d => (d.type === "platform" || d.type === "professional") ? "600" : "400")
+      .style("font-weight", d => (d.type === "platform" || d.type === "professional" || d.id === "Karla" || d.id === "Sara") ? "600" : "400")
       .style("pointer-events", "none")
-      .style("text-shadow", "0 0 4px #000");
+      .style("text-shadow", "0 1px 4px rgba(0,0,0,0.95)");
 
     simulation.on("tick", () => {
       link

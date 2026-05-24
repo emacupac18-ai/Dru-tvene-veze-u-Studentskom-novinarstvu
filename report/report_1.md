@@ -52,6 +52,10 @@ graph TD
 ### Topologija mreže
 Mreža se formalno modelira kao usmjereni graf $G = (V, E)$, gdje su ključni čvorovi definirani unutar tri kategorije (Studentske platforme, Studenti/Članovi i Profesionalci/Mentori). Topološka analiza pokazuje da su se osobe poput **X1** i **X2** pokazale kao kritični premošćujući čvorovi visoke centralnosti posredovanja (*betweenness centrality*) koji spajaju dvije odvojene ključne medijske domene.
 
+![Vizualizacija mreže (Media Network Graph)](../src/assets/images/network_graph_1779653822863.png)
+
+*Slika 1. Integrirani i interaktivni graf društvene mreže studentskih medija u "Media Network Explorer" sučelju, koji zorno prikazuje red/blue klastere platformi s premošćujućim crveno-plavim (ljubičastim) čvorovima u samoj sredini te mentorske rute u dnu.*
+
 ---
 
 ## Analiza kvalitativnih intervjua: Iskustva studenata u medijskom ekosustavu
