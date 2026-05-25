@@ -4,7 +4,7 @@
 **Datum:** 24. svibnja 2026.
 
 ## Sažetak
-Ovaj seminar pruža sveobuhvatan teorijski i empirijski prikaz socijalne topologije studentskih medija te njihove uloge kao profesionalnog inkubatora. Prvi dio rada posvećen je aplikaciji "Media Network Explorer", interaktivnom alatu za vizualizaciju i analizu društvene mreže studentskih medija pomoću usmjerenih grafova (D3.js) i umjetne inteligencije (Google Gemini API). Drugi dio donosi detaljnu analizu dubinskih kvalitativnih intervjua bivših članova studentskog radija "Sova" i portala "Kišobran". Intervjui su strukturirani kroz šest ključnih, boldanih tematskih cjelina koje pokrivaju profesionalni zaokret i nesigurnost, institucionalni nedostatak prakse, razvoj praktičnih vještina, razvoj socijalnih kompetencija, socijalni kapital kroz umrežavanje, te izazove balansiranja akademskih obveza. Rezultati potvrđuju da neformalno umrežavanje i rano stjecanje praktičnog kapitala uvelike kompenziraju nedostatak formalnog kurikuluma.
+Ovaj seminar pruža sveobuhvatan teorijski i empirijski prikaz socijalne topologije studentskih medija te njihove uloge kao profesionalnog inkubatora. Prvi dio rada posvećen je aplikaciji "Media Network Explorer", interaktivnom alatu za vizualizaciju i analizu društvene mreže studentskih medija pomoću usmjerenih grafova (D3.js) i umjetne inteligencije (Google Gemini API). Drugi dio donosi detaljnu analizu dubinskih kvalitativnih intervjua bivših članova studentskog radija "Sova" i portala "Kišobran". Intervjui su zamišljeni kao polustruktuirani. Istraživanje se sadržavalo od 12 opširnih pitanja. Intervjui su strukturirani kroz šest ključnih, boldanih tematskih cjelina koje pokrivaju profesionalni zaokret i nesigurnost, institucionalni nedostatak prakse, razvoj praktičnih vještina, razvoj socijalnih kompetencija, socijalni kapital kroz umrežavanje, te izazove balansiranja akademskih obveza. Rezultati potvrđuju da neformalno umrežavanje i rano stjecanje praktičnog kapitala uvelike kompenziraju nedostatak formalnog kurikuluma. Također, s ovim istraživanjem dokazalo se koliko je studentska praksa bitna.
 
 ---
 
@@ -67,6 +67,7 @@ Mnogi studenti ulaze u svijet studentskih medija bez ikakve dugoročne namjere o
 - **Neočekivani obrat:** Jedna sugovornica navodi: *"Nisam imala nikakve ideje da bi ja možda završila na radiju. Ta Sova me onako okrenula u nekom drugom smjeru... uopće mi to nije bila ideja s 18 godina."*
 - **Slučajnost i privlačnost medija:** Sugovornici ističu da su se u novinarstvu našli *"totalno slučajno"*, ali da ih je praksa snažno *"zakačila"* tako da se više nisu mogli zamisliti u drugim strukama. To je vidljivo iz impresivnih profesionalnih putanja – od potpunog ignoriranja novinarstva do rada u prestižnim redakcijama (poput *24sata*), bavljenja PR-om te, u konačnici, rada u **Europskom parlamentu u Briselu**.
 - **Geografska ograničenja:** Lokalpatriotizam se javlja kao prepreka za formalno studiranje (primjerice, odluka o ostanku u Rijeci unatoč nepostojećem studiju novinarstva), pri čemu studentske platforme služe kao jedini supstitut za stručno usavršavanje u regiji.
+
 
 ### 2. **Sustavan nedostatak studentske prakse i formalnog priznanja**
 Drugi dominantan motiv koji proizlazi iz iskaza je potpuni raskorak između sveučilišne nastave i stvarne potrebe za profesionalnim iskustvom:
