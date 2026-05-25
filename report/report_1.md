@@ -19,35 +19,7 @@ Cilj je ovog seminara premostiti jaz između kvantitativne topologije društveni
 
 ---
 
-## Tehnički i metodološki okvir: Media Network Explorer
 
-### Tehnička arhitektura
-Aplikacija "Media Network Explorer" funkcionira kao vizualni i analitički digitalni blizanac studentske medijske mreže:
-1. **Frontend i vizualizacijski sloj:** Koristeći kombinaciju React-a i biblioteke D3.js (Data-Driven Documents), razvijena je dinamična simulacija sila (*force-directed graph*). Graf je strukturiran u krugovima (*radial layout*) gdje je koordinacija i udaljenost određena ulogama: od platformi u središtu, preko mentora u srednjem prstenu, do studenata u vanjskim prstenovima.
-2. **Sloj inteligencije (AI):** Putem biblioteke `@google/genai` implementiran je sloj utemeljenog AI asistenta (informiran o točnoj topologiji mreže i njezinoj strukturi). Kada istraživač u sučelju postavi pitanje o povezivosti, sustav generira precizan semantički odgovor na temelju realnog stanja mreže.
-
-### Tijek podataka (Data Flow)
-Sljedeći dijagram prikazuje kako se podaci o ekosustavu procesiraju i pretvaraju u upotrebljive društvene informacije:
-
-```mermaid
-graph TD
-    Korisnik([Istraživač Mreže]) -->|Interakcija| Graph[Mreža Studenata i Platformi]
-    Korisnik -->|Upit o suradnji| AI_UI[AI Sučelje za Analizu]
-    
-    subgraph Struktura_Mreže [Podaci o Ekosustavu]
-        Nodes[(Studenti, Mentori, Platforme)] --> Graph
-        Links{Veze i Suradnje} --> Graph
-        Nodes -->|Semantički kontekst| AI_Service[Gemini Service]
-    end
-    
-    subgraph Inteligencija [Analitički Sloj]
-        AI_Service -->|Mapiranje veza| LLM[Gemini-3-Flash]
-        LLM -->|Identifikacija mostova / mentora| AI_Service
-    end
-    
-    AI_Service -->|Uvid u društvenu dinamiku| AI_UI
-    Graph -->|Fokus na čvor| Detalji[Profil Studenta/Profesionalca]
-```
 
 ### Topologija mreže
 Mreža se formalno modelira kao usmjereni graf $G = (V, E)$, gdje su ključni čvorovi definirani unutar tri kategorije (Studentske platforme, Studenti/Članovi i Profesionalci/Mentori). Topološka analiza pokazuje da su se osobe poput **X1** i **X2** pokazale kao kritični premošćujući čvorovi visoke centralnosti posredovanja (*betweenness centrality*) koji spajaju dvije odvojene ključne medijske domene.
