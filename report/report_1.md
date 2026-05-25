@@ -1,6 +1,6 @@
 # Društvene mreže u studentskom novinarstvu te utjecaj na profesionalnu karijeru: Analiza ekosustava i kvalitativnih svjedočanstava
 
-**Autor:** Studentski istraživački tim
+**Autor:** Ema Cupać
 **Datum:** 24. svibnja 2026.
 
 ## Sažetak
